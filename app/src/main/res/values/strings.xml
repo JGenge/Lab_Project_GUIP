@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kitchen</string>
-    <string name="add_a_device">Add a Device</string>
     <string name="remove_a_device">Remove a Device</string>
+    <string name="add_a_device">Add a Device</string>
+    <string name="add_or_remove_a_device">Add or Remove a Device</string>
 </resources>
