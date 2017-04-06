@@ -68,6 +68,10 @@ public class HouseSettings extends AppCompatActivity {
             Log.i(activity, "Crashed :" + cioobE.getMessage());
         }
 
+
+
+
+
         settingText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,8 +105,6 @@ public class HouseSettings extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle b = new Bundle();
                 b.putLong("id", id);
-                String value = settingsList.getItemAtPosition(position).toString();
-                b.putString("value", value);
                 if (!isTablet) {
                     Intent intent = new Intent(HouseSettings.this, SettingsDetails.class);
 
@@ -124,8 +126,10 @@ public class HouseSettings extends AppCompatActivity {
 
         int count = 0;
 
+       /* Snackbar.make(view, "This is something I have written", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();*/
     }
-   
+
 
     private class SettingAdapter extends ArrayAdapter<String> {
         public SettingAdapter(Context context) {
@@ -143,13 +147,14 @@ public class HouseSettings extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = HouseSettings.this.getLayoutInflater();
             View result = null;
-            result = inflater.inflate(R.layout.new_house_setting, null);
+            result = inflater.inflate(R.layout.setting, null);
             TextView message = (TextView) result.findViewById(R.id.setting_text);
             message.setText(getItem(position));
             return result;
 
 
         }
+
     }
 
     @Override

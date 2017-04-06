@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">final_project</string>
+    <string name="okButton">OK</string>
+    <string name="dialogTitle">Error</string>
 </resources>
