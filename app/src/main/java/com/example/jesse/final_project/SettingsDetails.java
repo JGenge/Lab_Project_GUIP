@@ -24,10 +24,27 @@ public class SettingsDetails extends AppCompatActivity  {
         FragmentTransaction fTran = fMan.beginTransaction();
         Bundle b = getIntent().getExtras();
         long id = b.getLong("id");
+        String type = b.getString("Type");
+        String name = b.getString("Name");
 
-        fr = chooseFrag(id);
+        switch (type){
+
+            case "Garage":
+                fr = new GarageSettings();
+                break;
+            case "Temperature":
+                fr = new TemperatureSettings();
+                break;
+            case "Outdoor":
+                fr = new OutsideTemperature();
+                break;
+            case "New":
+                fr = new NewSetting();
+                break;
+        }
 
         if(fr != null) {
+            fr.setArguments(b);
             fTran.replace(R.id.settingsFrame, fr);
             fTran.commit();
             if (fr instanceof OutsideTemperature){
@@ -40,7 +57,7 @@ public class SettingsDetails extends AppCompatActivity  {
             AlertDialog dialog;
 
             LayoutInflater inflater = getLayoutInflater();
-            View v=inflater.inflate(R.layout.error_window, null);
+            View v=inflater.inflate(R.layout.customlayout, null);
 
             builder.setTitle(R.string.dialogTitle).setPositiveButton(R.string.okButton, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -51,25 +68,5 @@ public class SettingsDetails extends AppCompatActivity  {
             dialog.show();
         }
 
-    }
-
-    private Fragment chooseFrag(long id){
-
-        Fragment frag;
-
-        if (id == 0){
-            frag = new GarageSettings();
-        }
-        else if  (id == 1){
-            frag = new TemperatureSettings();
-        }
-        else if (id == 2){
-            frag = new OutsideTemperature();
-        }
-        else{
-            frag = null;
-        }
-
-        return frag;
     }
 }

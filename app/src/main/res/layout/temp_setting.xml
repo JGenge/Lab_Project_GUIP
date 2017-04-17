@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:text="Set Temperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempText" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempPicker" />
+
+        <Button
+        android:text="Set Temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setTempNow"/>
+
+    <Button
+    android:text="Set Schedule Temp."
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/setTempTime"/>
+
+    <TimePicker
+        android:layout_width="184dp"
+        android:layout_height="165dp"
+        android:id="@+id/timePicker"
+        android:theme="@android:style/Theme.Holo.Light.Dialog"
+        android:layout_gravity="center_vertical|center_horizontal" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+            android:text="Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tempDelete"
+                android:layout_weight="1" />
+
+            <Button
+            android:text="Close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tempClose"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tempList"/>
 
 </LinearLayout>
