@@ -13,10 +13,10 @@
         android:contentDescription="@string/app_name" />
 
     <TextView
-        android:text="Error, new setting name already exists"
+        android:text="Delete Setting?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        android:id="@+id/deleteText" />
 
 
 </LinearLayout>

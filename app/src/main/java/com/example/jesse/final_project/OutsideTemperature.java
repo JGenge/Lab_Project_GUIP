@@ -51,8 +51,10 @@ public class OutsideTemperature extends Fragment {
         root = inflater.inflate(R.layout.weather_setting, container, false);
 
         pBar = (ProgressBar) root.findViewById(R.id.progressBar);
+        pBar.setMax(100);
+        pBar.setProgress(0);
 
-        pBar.setVisibility(View.INVISIBLE);
+        pBar.setVisibility(View.VISIBLE);
 
         delete = (Button) root.findViewById(R.id.outDelete);
         close = (Button) root.findViewById(R.id.outClose);
@@ -85,6 +87,7 @@ public class OutsideTemperature extends Fragment {
     }
 
     public void executeQuery(){
+
         new ForecastQuery().execute();
     }
 
@@ -184,6 +187,8 @@ public class OutsideTemperature extends Fragment {
         @Override
         protected void onProgressUpdate(Integer... value) {
             pBar.setVisibility(View.VISIBLE);
+            pBar.setMax(100);
+            pBar.setProgress(0);
             pBar.setProgress(value[0]);
 
         }

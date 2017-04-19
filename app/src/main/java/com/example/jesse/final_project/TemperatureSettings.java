@@ -59,14 +59,10 @@ tempAdapter tAdpater;
         id = b.getLong("id");
         name = b.getString("Name");
 
-        temps = b.getStringArrayList("values");
+        temps = b.getStringArrayList("Values");
 
         if (temps != null) {
-            for (i = 0; i < temps.size(); i++) {
-                String s = temps.get(i) + " -> " + temps.get(i + 1);
-                i++;
-                tempList.add(s);
-            }
+                tempList = temps;
         }
 
 
@@ -104,8 +100,9 @@ tempAdapter tAdpater;
             public void onClick(View v) {
                 Intent intent =  new Intent();
                 intent.putExtra("Name", name);
-                intent.putExtra("Current", temp);
+                intent.putExtra("Current", ""+temp);
                 intent.putExtra("Temps", tempList);
+                intent.putExtra("id", id);
                 TemperatureSettings.this.getActivity().setResult(1, intent);
                 TemperatureSettings.this.getActivity().finish();
             }

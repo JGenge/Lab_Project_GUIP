@@ -19,7 +19,7 @@ public class GarageSettings extends Fragment {
     Button doorButton, close, delete;
     CheckBox lightCheckBox;
     Boolean openClose = false;              //True = door open, False = door close
-    String doorToastMessage, lightToastMessage;
+    String doorToastMessage, lightToastMessage, name;
     long id;
 
     @Override
@@ -34,6 +34,7 @@ public class GarageSettings extends Fragment {
         Bundle b = getArguments();
 
         id = b.getLong("id");
+        name = b.getString("Name");
 
         ArrayList<String> values = b.getStringArrayList("Values");
 
@@ -83,9 +84,21 @@ public class GarageSettings extends Fragment {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(GarageSettings.this.getActivity(), HouseSettings.class);
+                String l = "Off";
+                String d = "Closed";
+
+                if(lightCheckBox.isChecked()){
+                    l = "On";
+                }
+                if(openClose){
+                    d = "Open";
+                }
+                Intent intent =  new Intent();
+                intent.putExtra("Light", l);
+                intent.putExtra("Door", d);
+                intent.putExtra("Name", name);
                 GarageSettings.this.getActivity().setResult(1, intent);
-                GarageSettings.this.getActivity().finish();
+                getActivity().finish();
             }
         });
 
